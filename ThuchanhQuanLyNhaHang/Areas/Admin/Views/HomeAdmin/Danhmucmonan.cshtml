@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ThuchanhQuanLyNhaHang.Models.MenuItem>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Danhmucmonan";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Danh mục món ăn</h1>
+
+<p>
+    <a asp-action="Themmonan">Create New</a>
+</p>
+<table class="table table-bordered table-{color}">
+    <thead >
+        <tr class="table-warning">
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+          
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            <tr class="table-success">
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            
+            <td>
+                    <a asp-action="Suamonan" asp-route-MenuItemID="@item.MenuItemId">Edit</a> |
+          
+                    <a asp-action="Xoamonan" asp-route-MenuItemID="@item.MenuItemId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
