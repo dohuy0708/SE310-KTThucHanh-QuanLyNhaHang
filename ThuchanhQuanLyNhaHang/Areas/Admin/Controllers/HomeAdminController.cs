@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Data.Entity;
 using ThuchanhQuanLyNhaHang.Models;
+using ThuchanhQuanLyNhaHang.Models.Authentication;
 
 namespace ThuchanhQuanLyNhaHang.Areas.Admin.Controllers
 {
@@ -15,6 +17,7 @@ namespace ThuchanhQuanLyNhaHang.Areas.Admin.Controllers
         QlnhaHangContext db = new QlnhaHangContext();
         [Route("")]
         [Route("index")]
+      
         public IActionResult Index()
         {
             return View();
